@@ -37,8 +37,14 @@ a:hover { color: #06b6d4; border-bottom-color: #06b6d4; }
 .q-options { list-style: none; padding: 0; margin-bottom: 16px; }
 .q-options li { padding: 10px 14px; margin-bottom: 6px; border-radius: 8px; background: rgba(30, 40, 65, 0.6); border: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; color: #9ba3b8; }
 .q-options li.correct { background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.3); color: #6ee7b7; }
-.q-explain { background: rgba(99, 102, 241, 0.08); border-left: 3px solid #6366f1; padding: 16px 20px; border-radius: 0 10px 10px 0; margin-top: 12px; }
-.q-explain p { font-size: 0.92rem; color: #a5b4fc; white-space: pre-line; }
+.q-explain { margin-top: 12px; }
+.q-explain-item { padding: 14px 18px; border-radius: 10px; margin-bottom: 10px; font-size: 0.92rem; line-height: 1.75; }
+.q-explain-item.correct-exp { background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; }
+.q-explain-item.correct-exp .exp-label { color: #6ee7b7; }
+.q-explain-item.wrong-exp { background: rgba(239, 68, 68, 0.06); border-left: 3px solid rgba(239, 68, 68, 0.4); }
+.q-explain-item.wrong-exp .exp-label { color: #fca5a5; }
+.exp-label { font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; display: block; }
+.exp-text { color: #b4bcd0; }
 details { cursor: pointer; }
 details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding: 8px 0; }
 .footer { margin-top: 60px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: #6b7280; font-size: 0.9rem; }
@@ -100,10 +106,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: PDF documents (A), video recordings (C), and customer email messages (D) are all unstructured data. PDFs contain free-form text and layouts without a predefined schema. Video recordings consist of audiovisual streams with no tabular structure. Email messages are free-form text that varies in length, format, and content.
-- Why B is wrong: A product inventory spreadsheet with defined columns for SKU, quantity, and price is structured data organized in rows and columns with a consistent, predefined schema.
-- Why E is wrong: A database table with transaction records is structured data stored with defined schemas, columns, data types, and relationships.
-- Why F is wrong: A CSV file with sensor readings is structured data organized in a tabular format with consistent columns and rows, even though the file format itself is plain text.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">PDF documents (A), video recordings (C), and customer email messages (D) are all unstructured data. PDFs contain free-form text and layouts without a predefined schema. Video recordings consist of audiovisual streams with no tabular structure. Email messages are free-form text that varies in length, format, and content.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">A product inventory spreadsheet with defined columns for SKU, quantity, and price is structured data organized in rows and columns with a consistent, predefined schema.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why E is wrong</span><span class="exp-text">A database table with transaction records is structured data stored with defined schemas, columns, data types, and relationships.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why F is wrong</span><span class="exp-text">A CSV file with sensor readings is structured data organized in a tabular format with consistent columns and rows, even though the file format itself is plain text.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -117,10 +123,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Amazon Rekognition detects objects, scenes, and activities in images, making it ideal for automatic image tagging in a photo-sharing application.
-- Why A is wrong: Amazon Comprehend is a natural language processing (NLP) service that analyzes text for sentiment, entities, and language—it does not process images.
-- Why B is wrong: Amazon Kendra is an intelligent enterprise search service that helps users find information across documents and data sources—it is not designed for image object detection.
-- Why D is wrong: Amazon Textract extracts text and structured data from scanned documents and forms using OCR. It is purpose-built for document processing, not for detecting objects in photos.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Amazon Rekognition detects objects, scenes, and activities in images, making it ideal for automatic image tagging in a photo-sharing application.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">Amazon Comprehend is a natural language processing (NLP) service that analyzes text for sentiment, entities, and language—it does not process images.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">Amazon Kendra is an intelligent enterprise search service that helps users find information across documents and data sources—it is not designed for image object detection.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Amazon Textract extracts text and structured data from scanned documents and forms using OCR. It is purpose-built for document processing, not for detecting objects in photos.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -134,10 +140,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Feature engineering is the process of creating new, more informative features from existing raw data—such as extracting day-of-week, hour, and month from a timestamp—to help the model learn patterns it could not detect from the raw column alone.
-- Why A is wrong: Data collection is the stage where raw data is gathered from sources. The data already exists here; the task is to transform it into more useful features.
-- Why C is wrong: Model evaluation occurs after training, when you assess the model's performance using metrics. It does not involve creating new columns from raw data.
-- Why D is wrong: Hyperparameter tuning adjusts model configuration parameters (like learning rate or tree depth) after training. It does not involve transforming input data columns.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Feature engineering is the process of creating new, more informative features from existing raw data—such as extracting day-of-week, hour, and month from a timestamp—to help the model learn patterns it could not detect from the raw column alone.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">Data collection is the stage where raw data is gathered from sources. The data already exists here; the task is to transform it into more useful features.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">Model evaluation occurs after training, when you assess the model's performance using metrics. It does not involve creating new columns from raw data.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Hyperparameter tuning adjusts model configuration parameters (like learning rate or tree depth) after training. It does not involve transforming input data columns.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -151,10 +157,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Regression is the supervised ML technique for predicting continuous numerical outputs. Customer lifetime value is a dollar amount on a continuous scale, making regression (such as linear regression or gradient-boosted regression) the appropriate choice.
-- Why A is wrong: Classification predicts discrete categorical labels (such as &quot;high-value&quot; vs. &quot;low-value&quot;), not a specific dollar amount. The scenario asks for a continuous numerical prediction, which classification cannot provide.
-- Why B is wrong: Clustering is an unsupervised technique that groups similar data points together. While it could segment customers into groups, it does not predict a specific dollar value for each customer.
-- Why D is wrong: Dimensionality reduction (such as PCA) reduces the number of input features to simplify data representation. It is a data transformation technique, not a prediction technique, and cannot output a dollar amount.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Regression is the supervised ML technique for predicting continuous numerical outputs. Customer lifetime value is a dollar amount on a continuous scale, making regression (such as linear regression or gradient-boosted regression) the appropriate choice.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">Classification predicts discrete categorical labels (such as &quot;high-value&quot; vs. &quot;low-value&quot;), not a specific dollar amount. The scenario asks for a continuous numerical prediction, which classification cannot provide.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">Clustering is an unsupervised technique that groups similar data points together. While it could segment customers into groups, it does not predict a specific dollar value for each customer.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Dimensionality reduction (such as PCA) reduces the number of input features to simplify data representation. It is a data transformation technique, not a prediction technique, and cannot output a dollar amount.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -168,10 +174,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Fine-tuning is the lifecycle stage where a pre-trained foundation model is further trained on labeled, domain-specific data to adapt its general capabilities for a particular task or industry—such as customer service in this scenario.
-- Why A is wrong: Deployment (initial deployment) is the stage where a fully trained and evaluated model is made available in a production environment; it does not involve any additional model training or domain adaptation.
-- Why B is wrong: Pre-training is the foundational first stage where the model learns broad language patterns from massive, diverse datasets; the scenario specifically describes the stage that occurs after pre-training, where domain-specific specialization takes place.
-- Why C is wrong: Data collection is the process of gathering raw datasets to be used in training; it is a preparatory step and does not itself adapt the model's parameters to perform better in a specific domain.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Fine-tuning is the lifecycle stage where a pre-trained foundation model is further trained on labeled, domain-specific data to adapt its general capabilities for a particular task or industry—such as customer service in this scenario.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">Deployment (initial deployment) is the stage where a fully trained and evaluated model is made available in a production environment; it does not involve any additional model training or domain adaptation.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">Pre-training is the foundational first stage where the model learns broad language patterns from massive, diverse datasets; the scenario specifically describes the stage that occurs after pre-training, where domain-specific specialization takes place.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">Data collection is the process of gathering raw datasets to be used in training; it is a preparatory step and does not itself adapt the model's parameters to perform better in a specific domain.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -185,10 +191,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: GenAI models excel at understanding natural-language queries and returning contextually relevant results. Improved relevance directly translates to measurable business outcomes — higher customer satisfaction, lower bounce rates, and increased conversion — all of which justify the investment.
-- Why B is wrong: GenAI inference can be more compute-intensive than keyword matching. Infrastructure costs depend on model size and traffic volume, so lower cost is not a guaranteed outcome of switching to GenAI.
-- Why C is wrong: GenAI cannot guarantee zero irrelevant results. Hallucination and imprecision are recognized limitations, so the realistic goal is significant improvement in relevance, not perfection.
-- Why D is wrong: GenAI response size and page load time depend on implementation details and network architecture. There is no inherent guarantee that GenAI makes pages load faster.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">GenAI models excel at understanding natural-language queries and returning contextually relevant results. Improved relevance directly translates to measurable business outcomes — higher customer satisfaction, lower bounce rates, and increased conversion — all of which justify the investment.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">GenAI inference can be more compute-intensive than keyword matching. Infrastructure costs depend on model size and traffic volume, so lower cost is not a guaranteed outcome of switching to GenAI.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">GenAI cannot guarantee zero irrelevant results. Hallucination and imprecision are recognized limitations, so the realistic goal is significant improvement in relevance, not perfection.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">GenAI response size and page load time depend on implementation details and network architecture. There is no inherent guarantee that GenAI makes pages load faster.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -202,10 +208,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Few-shot prompting includes example input-output pairs (typically 2–10) directly in the prompt, which helps the model understand the desired output format, domain-specific terminology, and classification boundaries. This is a standard technique for improving accuracy without retraining the model.
-- Why A is wrong: Zero-shot prompting provides only the task instruction with no examples. It works well for straightforward tasks but often underperforms few-shot prompting on nuanced or domain-specific classification tasks — the scenario explicitly states that the model struggles with edge cases under a zero-shot approach.
-- Why B is wrong: Increasing temperature makes the model’s output more random and creative, which typically increases variability and the chance of misclassification rather than improving accuracy. Lower temperature values produce more deterministic outputs.
-- Why D is wrong: Reducing the maximum token limit constrains output length but does not improve the model’s understanding of the task. The problem is classification accuracy, not output verbosity — a shorter wrong answer is still wrong.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Few-shot prompting includes example input-output pairs (typically 2–10) directly in the prompt, which helps the model understand the desired output format, domain-specific terminology, and classification boundaries. This is a standard technique for improving accuracy without retraining the model.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">Zero-shot prompting provides only the task instruction with no examples. It works well for straightforward tasks but often underperforms few-shot prompting on nuanced or domain-specific classification tasks — the scenario explicitly states that the model struggles with edge cases under a zero-shot approach.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">Increasing temperature makes the model’s output more random and creative, which typically increases variability and the chance of misclassification rather than improving accuracy. Lower temperature values produce more deterministic outputs.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Reducing the maximum token limit constrains output length but does not improve the model’s understanding of the task. The problem is classification accuracy, not output verbosity — a shorter wrong answer is still wrong.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -219,10 +225,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Diffusion models generate images from text descriptions through a process of iterative noise removal (denoising). Starting from random noise, the model is trained to progressively refine an image toward one that matches the text prompt. This is the architecture behind popular image generators like Stable Diffusion and Amazon Titan Image Generator.
-- Why A is wrong: Regression models are traditional ML models that predict a continuous numerical output (e.g., price prediction). They do not generate images.
-- Why B is wrong: Classification models assign inputs to predefined categories (e.g., spam vs. not spam). They produce a label, not an image.
-- Why D is wrong: Text-only LLMs such as GPT-style transformer models process and generate text tokens. Without a multimodal or image-generation component, they cannot produce images.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Diffusion models generate images from text descriptions through a process of iterative noise removal (denoising). Starting from random noise, the model is trained to progressively refine an image toward one that matches the text prompt. This is the architecture behind popular image generators like Stable Diffusion and Amazon Titan Image Generator.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">Regression models are traditional ML models that predict a continuous numerical output (e.g., price prediction). They do not generate images.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">Classification models assign inputs to predefined categories (e.g., spam vs. not spam). They produce a label, not an image.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Text-only LLMs such as GPT-style transformer models process and generate text tokens. Without a multimodal or image-generation component, they cannot produce images.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -236,10 +242,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: RAG does not require labeled training data—it only needs unstructured documents to be chunked, embedded, and indexed in a vector store. At inference time, relevant chunks are retrieved and injected into the prompt, grounding the model's responses in the company's documentation. Amazon Bedrock Knowledge Bases implements this pattern as a managed service.
-- Why A is wrong: Fine-tuning with supervised learning requires labeled input-output pairs (e.g., question → correct answer). The scenario explicitly states the company has no labeled training examples, making supervised fine-tuning infeasible without first investing in a data-labeling effort.
-- Why C is wrong: Pre-training from scratch requires massive compute resources and a very large general corpus. It does not solve the targeted need of grounding responses in specific internal documentation, and the company's constraint is data format (no labels), not compute budget.
-- Why D is wrong: RLHF requires human preference judgments comparing model outputs—another form of labeled data the company does not have. RLHF is used for alignment and safety tuning, not for grounding responses in specific documentation.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">RAG does not require labeled training data—it only needs unstructured documents to be chunked, embedded, and indexed in a vector store. At inference time, relevant chunks are retrieved and injected into the prompt, grounding the model's responses in the company's documentation. Amazon Bedrock Knowledge Bases implements this pattern as a managed service.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">Fine-tuning with supervised learning requires labeled input-output pairs (e.g., question → correct answer). The scenario explicitly states the company has no labeled training examples, making supervised fine-tuning infeasible without first investing in a data-labeling effort.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">Pre-training from scratch requires massive compute resources and a very large general corpus. It does not solve the targeted need of grounding responses in specific internal documentation, and the company's constraint is data format (no labels), not compute budget.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">RLHF requires human preference judgments comparing model outputs—another form of labeled data the company does not have. RLHF is used for alignment and safety tuning, not for grounding responses in specific documentation.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -253,10 +259,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: An embedding model transforms text into dense numerical vectors (embeddings) where semantically similar texts have vectors that are close together in the embedding space. This is the foundational step in any RAG pipeline—documents must be embedded before they can be stored in a vector database and retrieved via similarity search. Amazon Titan Embeddings and Cohere Embed are examples available on Amazon Bedrock.
-- Why 'A large language model optimized for text generation' is wrong: Text generation models produce human-readable text output, not the fixed-dimensional numerical vectors required for vector storage and similarity search. While LLMs use embeddings internally, their API output is generated text—not embedding vectors suitable for indexing.
-- Why 'A diffusion model designed for image synthesis' is wrong: Diffusion models generate images by iteratively denoising random noise. They are designed for visual content creation and do not produce the text embedding vectors needed for semantic document search.
-- Why 'A reinforcement learning model trained on reward signals' is wrong: Reinforcement learning models learn policies through reward optimization in interactive environments. They are not designed to produce semantic text embeddings and are unrelated to the document vectorization task.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">An embedding model transforms text into dense numerical vectors (embeddings) where semantically similar texts have vectors that are close together in the embedding space. This is the foundational step in any RAG pipeline—documents must be embedded before they can be stored in a vector database and retrieved via similarity search. Amazon Titan Embeddings and Cohere Embed are examples available on Amazon Bedrock.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Explanation</span><span class="exp-text">Why 'A large language model optimized for text generation' is wrong: Text generation models produce human-readable text output, not the fixed-dimensional numerical vectors required for vector storage and similarity search. While LLMs use embeddings internally, their API output is generated text—not embedding vectors suitable for indexing.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Explanation</span><span class="exp-text">Why 'A diffusion model designed for image synthesis' is wrong: Diffusion models generate images by iteratively denoising random noise. They are designed for visual content creation and do not produce the text embedding vectors needed for semantic document search.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Explanation</span><span class="exp-text">Why 'A reinforcement learning model trained on reward signals' is wrong: Reinforcement learning models learn policies through reward optimization in interactive environments. They are not designed to produce semantic text embeddings and are unrelated to the document vectorization task.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -271,10 +277,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Pre-training (index 1) and fine-tuning (index 3) are the two core training stages in the foundation model lifecycle. Pre-training teaches a model broad world knowledge from massive, diverse text corpora, while fine-tuning adapts that general knowledge to a specific task or domain using a smaller, curated dataset.
-- Why index 0 is wrong: Deploying a model to an endpoint is an inference/operations step, not a training stage.
-- Why index 2 is wrong: Benchmark evaluation measures a trained model's performance but is not itself a training element.
-- Why index 4 is wrong: Storing a model artifact in a registry is an MLOps/versioning concern, not a training stage.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Pre-training (index 1) and fine-tuning (index 3) are the two core training stages in the foundation model lifecycle. Pre-training teaches a model broad world knowledge from massive, diverse text corpora, while fine-tuning adapts that general knowledge to a specific task or domain using a smaller, curated dataset.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why index 0 is wrong</span><span class="exp-text">Deploying a model to an endpoint is an inference/operations step, not a training stage.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why index 2 is wrong</span><span class="exp-text">Benchmark evaluation measures a trained model's performance but is not itself a training element.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why index 4 is wrong</span><span class="exp-text">Storing a model artifact in a registry is an MLOps/versioning concern, not a training stage.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -288,10 +294,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: BERTScore leverages pre-trained BERT contextual embeddings to compute token-level similarity between generated and reference texts, capturing semantic meaning beyond surface-level word overlap. It produces precision, recall, and F1 scores based on embedding cosine similarity.
-- Why B is wrong: ROUGE measures n-gram overlap between generated and reference text — it counts shared words and phrases but does not understand meaning. A sentence with different words but identical meaning would score poorly under ROUGE, which is exactly what BERTScore is designed to fix.
-- Why C is wrong: Sentence perplexity measures how confidently a language model predicts a sequence of tokens; it reflects fluency, not similarity to a reference text. BERTScore requires a reference to compare against, making perplexity a fundamentally different type of metric.
-- Why D is wrong: BLEU computes weighted n-gram precision between a generated translation and one or more reference translations. Like ROUGE, it relies on exact or near-exact word matches and does not capture semantic equivalence the way BERTScore does with embeddings.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">BERTScore leverages pre-trained BERT contextual embeddings to compute token-level similarity between generated and reference texts, capturing semantic meaning beyond surface-level word overlap. It produces precision, recall, and F1 scores based on embedding cosine similarity.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">ROUGE measures n-gram overlap between generated and reference text — it counts shared words and phrases but does not understand meaning. A sentence with different words but identical meaning would score poorly under ROUGE, which is exactly what BERTScore is designed to fix.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">Sentence perplexity measures how confidently a language model predicts a sequence of tokens; it reflects fluency, not similarity to a reference text. BERTScore requires a reference to compare against, making perplexity a fundamentally different type of metric.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">BLEU computes weighted n-gram precision between a generated translation and one or more reference translations. Like ROUGE, it relies on exact or near-exact word matches and does not capture semantic equivalence the way BERTScore does with embeddings.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -305,10 +311,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: A company evaluating a machine translation system should use BLEU (Bilingual Evaluation Understudy), which measures n-gram overlap between the model's output and reference translations. It is the standard benchmark metric for translation tasks and is widely used across AWS documentation and ML literature.
-- Why A is wrong: ROUGE (Recall-Oriented Understudy for Gisting Evaluation) is designed for summarization tasks—it measures recall of overlapping n-grams against reference summaries. Using ROUGE for translation would not accurately reflect translation quality.
-- Why C is wrong: BERTScore uses contextual embeddings to measure semantic similarity between generated and reference text. While useful for semantic evaluation, it is not the primary standard metric for translation benchmarking.
-- Why D is wrong: Human evaluation (having reviewers rate translations) is valuable but expensive, slow, and not scalable. It is impractical as the primary automated evaluation metric for a production translation system.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">A company evaluating a machine translation system should use BLEU (Bilingual Evaluation Understudy), which measures n-gram overlap between the model's output and reference translations. It is the standard benchmark metric for translation tasks and is widely used across AWS documentation and ML literature.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">ROUGE (Recall-Oriented Understudy for Gisting Evaluation) is designed for summarization tasks—it measures recall of overlapping n-grams against reference summaries. Using ROUGE for translation would not accurately reflect translation quality.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">BERTScore uses contextual embeddings to measure semantic similarity between generated and reference text. While useful for semantic evaluation, it is not the primary standard metric for translation benchmarking.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Human evaluation (having reviewers rate translations) is valuable but expensive, slow, and not scalable. It is impractical as the primary automated evaluation metric for a production translation system.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -322,10 +328,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: When an AI system generates false information that harms a person's reputation, it creates legal exposure for defamation (publishing a false statement of fact that injures someone's reputation) and erodes user trust in the product. This is a hallucination-driven legal and reputational risk explicitly called out in Task 4.1.
-- Why option A is wrong: A regulatory audit finding is a compliance process event, not the primary risk created by publishing false, defamatory content about a person.
-- Why option B is wrong: Model accuracy regression is a technical performance concern. The scenario describes harm caused by fabricated content, not a drop in benchmark metrics.
-- Why option D is wrong: The harm from defamatory AI-generated content is not self-resolving. Retraining the model does not undo published false information or eliminate legal liability already incurred.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">When an AI system generates false information that harms a person's reputation, it creates legal exposure for defamation (publishing a false statement of fact that injures someone's reputation) and erodes user trust in the product. This is a hallucination-driven legal and reputational risk explicitly called out in Task 4.1.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why option A is wrong</span><span class="exp-text">A regulatory audit finding is a compliance process event, not the primary risk created by publishing false, defamatory content about a person.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why option B is wrong</span><span class="exp-text">Model accuracy regression is a technical performance concern. The scenario describes harm caused by fabricated content, not a drop in benchmark metrics.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why option D is wrong</span><span class="exp-text">The harm from defamatory AI-generated content is not self-resolving. Retraining the model does not undo published false information or eliminate legal liability already incurred.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -339,10 +345,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why A is correct: A model card is a standardized transparency artifact that documents a model's intended use, performance benchmarks (including across demographic subgroups), known limitations, and ethical considerations. AWS SageMaker Model Cards supports creating and managing these documents. They directly satisfy compliance and transparency requirements by giving stakeholders a structured view of what the model does and where it may fall short.
-- Why B is wrong: A training pipeline configuration captures technical implementation details (hyperparameters, preprocessing) but does not address fairness evaluations, intended use cases, or stakeholder-facing limitations. It serves ML engineers, not compliance reviewers.
-- Why C is wrong: A CloudWatch dashboard provides operational monitoring (latency, error rates) for a deployed endpoint. It is runtime observability, not documentation of model characteristics or limitations.
-- Why D is wrong: An IAM policy governs access control — who can call the endpoint — and has no relevance to model transparency, fairness, or limitations documentation.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why A is correct</span><span class="exp-text">A model card is a standardized transparency artifact that documents a model's intended use, performance benchmarks (including across demographic subgroups), known limitations, and ethical considerations. AWS SageMaker Model Cards supports creating and managing these documents. They directly satisfy compliance and transparency requirements by giving stakeholders a structured view of what the model does and where it may fall short.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">A training pipeline configuration captures technical implementation details (hyperparameters, preprocessing) but does not address fairness evaluations, intended use cases, or stakeholder-facing limitations. It serves ML engineers, not compliance reviewers.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">A CloudWatch dashboard provides operational monitoring (latency, error rates) for a deployed endpoint. It is runtime observability, not documentation of model characteristics or limitations.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">An IAM policy governs access control — who can call the endpoint — and has no relevance to model transparency, fairness, or limitations documentation.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -358,10 +364,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: (A) Interpretability vs. performance is a foundational tradeoff — highly accurate deep learning models (e.g., large neural networks) are often black boxes, while simpler, interpretable models like decision trees sacrifice some accuracy for explainability. This directly affects regulated use cases. (E) Privacy vs. model utility: techniques that protect user privacy — such as differential privacy, data anonymization, or federated learning — reduce the signal available to the model, lowering predictive performance. Teams must balance the obligation to protect personal data against the model's ability to deliver accurate results. (F) Safety vs. transparency: publishing full model details (weights, training data) improves external auditability but can expose security vulnerabilities or be misused to craft adversarial inputs — a real tension documented in responsible AI frameworks.
-- Why B is wrong: Fairness and safety can conflict. For example, adding strict safety filters may disproportionately restrict outputs for certain demographic groups, inadvertently reducing fairness. They must be balanced, not assumed to improve together.
-- Why C is wrong: Adding more training data reduces variance (overfitting) but does not equally reduce bias (underfitting). Bias is primarily a function of model architecture and assumptions, not dataset size. This is a common misconception about the bias-variance tradeoff.
-- Why D is wrong: Increasing complexity generally reduces training error but can increase variance and reduce generalization on unseen data — a core concept of the bias-variance tradeoff. More complexity does not always improve generalization.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">(A) Interpretability vs. performance is a foundational tradeoff — highly accurate deep learning models (e.g., large neural networks) are often black boxes, while simpler, interpretable models like decision trees sacrifice some accuracy for explainability. This directly affects regulated use cases. (E) Privacy vs. model utility: techniques that protect user privacy — such as differential privacy, data anonymization, or federated learning — reduce the signal available to the model, lowering predictive performance. Teams must balance the obligation to protect personal data against the model's ability to deliver accurate results. (F) Safety vs. transparency: publishing full model details (weights, training data) improves external auditability but can expose security vulnerabilities or be misused to craft adversarial inputs — a real tension documented in responsible AI frameworks.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">Fairness and safety can conflict. For example, adding strict safety filters may disproportionately restrict outputs for certain demographic groups, inadvertently reducing fairness. They must be balanced, not assumed to improve together.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">Adding more training data reduces variance (overfitting) but does not equally reduce bias (underfitting). Bias is primarily a function of model architecture and assumptions, not dataset size. This is a common misconception about the bias-variance tradeoff.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Increasing complexity generally reduces training error but can increase variance and reduce generalization on unseen data — a core concept of the bias-variance tradeoff. More complexity does not always improve generalization.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -375,10 +381,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: IAM is the correct service for fine-grained access control over AWS APIs, including Amazon Bedrock. You can write a policy that grants specific Bedrock actions (e.g., bedrock:InvokeModel) while using explicit Deny statements to block sensitive operations like bedrock:CreateGuardrail. This is a standard least-privilege pattern using identity-based policies attached to IAM roles.
-- Why B is wrong: CloudFront is a content delivery network (CDN). It sits in front of HTTP-based web applications and does not integrate with Bedrock API calls or control which IAM principals can call which Bedrock actions.
-- Why C is wrong: Amazon Bedrock uses IAM-based authentication via AWS Signature Version 4 — there are no standalone API keys to store in S3. Storing credentials in S3 would also itself be a security anti-pattern.
-- Why D is wrong: EC2 security groups control VPC-level network traffic, not IAM-level API authorization. They cannot restrict which specific Bedrock API actions an identity is allowed to invoke.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">IAM is the correct service for fine-grained access control over AWS APIs, including Amazon Bedrock. You can write a policy that grants specific Bedrock actions (e.g., bedrock:InvokeModel) while using explicit Deny statements to block sensitive operations like bedrock:CreateGuardrail. This is a standard least-privilege pattern using identity-based policies attached to IAM roles.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">CloudFront is a content delivery network (CDN). It sits in front of HTTP-based web applications and does not integrate with Bedrock API calls or control which IAM principals can call which Bedrock actions.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">Amazon Bedrock uses IAM-based authentication via AWS Signature Version 4 — there are no standalone API keys to store in S3. Storing credentials in S3 would also itself be a security anti-pattern.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">EC2 security groups control VPC-level network traffic, not IAM-level API authorization. They cannot restrict which specific Bedrock API actions an identity is allowed to invoke.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -392,10 +398,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Data lifecycle management and retention policies define how long data must be kept, when it must be deleted, and how that deletion is documented — directly satisfying regulatory retention and auditability requirements. In practice, this is implemented using S3 Lifecycle rules combined with retention records.
-- Why A is wrong: Data anonymization and pseudonymization are privacy techniques that mask personally identifiable information — they do not control how long data is stored or when it is deleted.
-- Why B is wrong: Replicating data across all Regions increases availability but does not address retention timeframes or deletion obligations; it could even worsen compliance by spreading data to restricted jurisdictions.
-- Why D is wrong: Real-time streaming to Kinesis is a data ingestion pattern, not a data governance strategy for retention or deletion.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Data lifecycle management and retention policies define how long data must be kept, when it must be deleted, and how that deletion is documented — directly satisfying regulatory retention and auditability requirements. In practice, this is implemented using S3 Lifecycle rules combined with retention records.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">Data anonymization and pseudonymization are privacy techniques that mask personally identifiable information — they do not control how long data is stored or when it is deleted.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">Replicating data across all Regions increases availability but does not address retention timeframes or deletion obligations; it could even worsen compliance by spreading data to restricted jurisdictions.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Real-time streaming to Kinesis is a data ingestion pattern, not a data governance strategy for retention or deletion.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -409,10 +415,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: AWS Config continuously records the configuration state of AWS resources and retains a full configuration history. It can evaluate resources against desired-state rules and produce timeline reports showing exactly what changed, when, and who changed it — making it the primary tool for configuration compliance auditing. This directly addresses the 90-day historical record requirement the team needs.
-- Why A is wrong: Amazon CloudWatch collects operational metrics, logs, and events in real time and is used for monitoring performance and setting alarms. It does not maintain a configuration history of resource settings — it tracks what a resource is doing, not what its configuration looks like.
-- Why C is wrong: AWS CloudTrail records API call activity (who called which API, from where, and when). While it complements Config by capturing the user action that triggered a change, CloudTrail alone does not show the before/after state of a resource configuration — you would need Config to answer 'what did the resource look like before and after this API call?'
-- Why D is wrong: AWS Trusted Advisor inspects your AWS environment against well-known best practices (cost, security, fault tolerance, performance) and surfaces recommendations. It does not record or store configuration change history.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">AWS Config continuously records the configuration state of AWS resources and retains a full configuration history. It can evaluate resources against desired-state rules and produce timeline reports showing exactly what changed, when, and who changed it — making it the primary tool for configuration compliance auditing. This directly addresses the 90-day historical record requirement the team needs.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">Amazon CloudWatch collects operational metrics, logs, and events in real time and is used for monitoring performance and setting alarms. It does not maintain a configuration history of resource settings — it tracks what a resource is doing, not what its configuration looks like.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">AWS CloudTrail records API call activity (who called which API, from where, and when). While it complements Config by capturing the user action that triggered a change, CloudTrail alone does not show the before/after state of a resource configuration — you would need Config to answer 'what did the resource look like before and after this API call?'</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">AWS Trusted Advisor inspects your AWS environment against well-known best practices (cost, security, fault tolerance, performance) and surfaces recommendations. It does not record or store configuration change history.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -428,10 +434,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Amazon Textract automatically extracts text, handwriting, and structured data (tables, forms) from scanned documents. Amazon Comprehend applies NLP to the extracted text to identify entities, key phrases, and sentiment. Amazon Kendra provides ML-powered intelligent search so employees can query documents in natural language—together these three services cover extraction, analysis, and discovery.
-- Why Amazon Polly is wrong: Polly converts text to lifelike speech (TTS); it does not extract, analyze, or index document content.
-- Why Amazon Rekognition is wrong: Rekognition detects objects, faces, and scenes in natural images and video; while it can detect printed text in photos, it is not designed for structured document extraction or bulk NLP analysis.
-- Why Amazon Translate is wrong: Translate converts text between languages; it does not extract structured data from documents, perform NLP analysis, or enable document search.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Amazon Textract automatically extracts text, handwriting, and structured data (tables, forms) from scanned documents. Amazon Comprehend applies NLP to the extracted text to identify entities, key phrases, and sentiment. Amazon Kendra provides ML-powered intelligent search so employees can query documents in natural language—together these three services cover extraction, analysis, and discovery.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why Amazon Polly is wrong</span><span class="exp-text">Polly converts text to lifelike speech (TTS); it does not extract, analyze, or index document content.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why Amazon Rekognition is wrong</span><span class="exp-text">Rekognition detects objects, faces, and scenes in natural images and video; while it can detect printed text in photos, it is not designed for structured document extraction or bulk NLP analysis.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why Amazon Translate is wrong</span><span class="exp-text">Translate converts text between languages; it does not extract structured data from documents, perform NLP analysis, or enable document search.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -445,10 +451,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Amazon VPC lets you define a logically isolated virtual network within AWS. You configure private subnets with no internet gateway, control traffic flow using security groups and network ACLs, and place SageMaker training jobs entirely within that boundary — providing full network isolation with no direct internet path.
-- Why A is wrong: AWS Direct Connect establishes a dedicated private connection between your on-premises data center and AWS. It provides a consistent network experience for hybrid workloads but does not create isolated network environments within AWS itself.
-- Why C is wrong: AWS PrivateLink allows specific AWS services or third-party services to be accessed over private endpoints, keeping traffic off the public internet. It enables access TO services, but does not itself create the isolated private network where compute workloads run.
-- Why D is wrong: AWS Transit Gateway interconnects multiple VPCs and on-premises networks in a hub-and-spoke architecture. It requires VPCs to already exist and does not create the isolated network boundary — it routes traffic between networks that already exist.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Amazon VPC lets you define a logically isolated virtual network within AWS. You configure private subnets with no internet gateway, control traffic flow using security groups and network ACLs, and place SageMaker training jobs entirely within that boundary — providing full network isolation with no direct internet path.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">AWS Direct Connect establishes a dedicated private connection between your on-premises data center and AWS. It provides a consistent network experience for hybrid workloads but does not create isolated network environments within AWS itself.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">AWS PrivateLink allows specific AWS services or third-party services to be accessed over private endpoints, keeping traffic off the public internet. It enables access TO services, but does not itself create the isolated private network where compute workloads run.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">AWS Transit Gateway interconnects multiple VPCs and on-premises networks in a hub-and-spoke architecture. It requires VPCs to already exist and does not create the isolated network boundary — it routes traffic between networks that already exist.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -462,10 +468,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Amazon EMR (Elastic MapReduce) is specifically designed to run open-source big data frameworks such as Apache Spark, Hadoop, and Hive on managed clusters, making it the right choice for large-scale ML feature engineering that requires custom cluster configuration and direct framework access.
-- Why A is wrong: AWS Glue is a serverless ETL service that runs Spark jobs in a managed environment, but it abstracts away the cluster and is designed for scheduled data pipeline orchestration—not for workloads requiring full control over Spark cluster configuration, instance types, and framework versions.
-- Why C is wrong: Amazon Athena is a serverless SQL query engine that runs interactive analytical queries against data stored in Amazon S3. It does not provision compute clusters or execute Spark or Hadoop framework jobs directly.
-- Why D is wrong: Amazon Kinesis Data Streams is designed for real-time streaming data ingestion—capturing continuous data flows at high throughput. It does not run big data processing frameworks for batch feature engineering.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Amazon EMR (Elastic MapReduce) is specifically designed to run open-source big data frameworks such as Apache Spark, Hadoop, and Hive on managed clusters, making it the right choice for large-scale ML feature engineering that requires custom cluster configuration and direct framework access.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">AWS Glue is a serverless ETL service that runs Spark jobs in a managed environment, but it abstracts away the cluster and is designed for scheduled data pipeline orchestration—not for workloads requiring full control over Spark cluster configuration, instance types, and framework versions.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">Amazon Athena is a serverless SQL query engine that runs interactive analytical queries against data stored in Amazon S3. It does not provision compute clusters or execute Spark or Hadoop framework jobs directly.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Amazon Kinesis Data Streams is designed for real-time streaming data ingestion—capturing continuous data flows at high throughput. It does not run big data processing frameworks for batch feature engineering.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -479,10 +485,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Caching stores the output of expensive inference calls so that identical or near-identical requests are served from memory instead of invoking the model again. This eliminates redundant compute, directly reducing per-request inference costs, and delivers sub-millisecond response times compared to the hundreds of milliseconds a live model call may require.
-- Why B is wrong: ElastiCache or MemoryDB serve cached results from DRAM at microsecond to low-millisecond latency—far faster than querying a model or a relational database. Caching always improves response times for repeated queries, never degrades them.
-- Why C is wrong: For workloads with repeated or predictable queries (e.g., the same user question asked thousands of times), caching delivers measurable cost savings and latency improvements. The benefit scales with cache hit rate.
-- Why D is wrong: Caching reduces inference costs because the model is not invoked for cache-hit requests. Foundation model inference on services like Amazon Bedrock or SageMaker endpoints is billed per token or per invocation—avoiding those calls directly cuts the bill.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Caching stores the output of expensive inference calls so that identical or near-identical requests are served from memory instead of invoking the model again. This eliminates redundant compute, directly reducing per-request inference costs, and delivers sub-millisecond response times compared to the hundreds of milliseconds a live model call may require.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">ElastiCache or MemoryDB serve cached results from DRAM at microsecond to low-millisecond latency—far faster than querying a model or a relational database. Caching always improves response times for repeated queries, never degrades them.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">For workloads with repeated or predictable queries (e.g., the same user question asked thousands of times), caching delivers measurable cost savings and latency improvements. The benefit scales with cache hit rate.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Caching reduces inference costs because the model is not invoked for cache-hit requests. Foundation model inference on services like Amazon Bedrock or SageMaker endpoints is billed per token or per invocation—avoiding those calls directly cuts the bill.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -496,10 +502,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: AWS Config Rules continuously evaluate AWS resource configurations against defined compliance rules and best practices, automatically flagging non-compliant resources so they can be remediated.
-- Why B is wrong: AWS CloudTrail records API calls and user activity for audit purposes but does not evaluate resource configurations against compliance rules.
-- Why C is wrong: AWS Trusted Advisor provides general best-practice recommendations across six categories but does not enforce specific, custom configuration rules against your resources.
-- Why D is wrong: Amazon Inspector assesses EC2 instance vulnerabilities and container image security, not general AWS resource configuration compliance.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">AWS Config Rules continuously evaluate AWS resource configurations against defined compliance rules and best practices, automatically flagging non-compliant resources so they can be remediated.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">AWS CloudTrail records API calls and user activity for audit purposes but does not evaluate resource configurations against compliance rules.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">AWS Trusted Advisor provides general best-practice recommendations across six categories but does not enforce specific, custom configuration rules against your resources.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Amazon Inspector assesses EC2 instance vulnerabilities and container image security, not general AWS resource configuration compliance.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -515,10 +521,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why options B, C, D are correct: S3 Versioning (B) maintains a full history of every object version, enabling recovery from accidental overwrites or deletions by restoring a prior version. Default server-side encryption (C) using SSE-S3 (AES-256 managed by Amazon) or SSE-KMS (customer-managed keys via AWS KMS) ensures data is encrypted before it is written to disk, protecting confidentiality even if storage-layer access controls are bypassed. IAM policies and bucket policies (D) enforce the principle of least privilege, ensuring only authorized SageMaker execution roles, data engineers, and pipelines can read or write training data. Together these three controls address confidentiality (encryption), access integrity (IAM/bucket policies), and recoverability (versioning).
-- Why A is wrong: S3 Transfer Acceleration is a network performance feature that routes uploads through CloudFront edge locations to improve upload speed from geographically distant clients. It has no effect on the security or protection of data already stored in S3. Enabling or disabling it does not change who can access, overwrite, or delete your training data.
-- Why E is wrong: Using a single shared bucket with no object-level policies violates the principle of least privilege. Different teams and automated pipelines should be restricted to only the specific prefixes or objects they require. A flat-permission bucket means a misconfigured or compromised service can read, overwrite, or delete any training dataset in the bucket.
-- Why F is wrong: VPC security groups control network-level access to EC2 instance network interfaces — they do not protect objects stored in Amazon S3. S3 is accessed via HTTPS API calls that are authorized by IAM and bucket policies, not by security groups. S3 Block Public Access, bucket policies, and IAM policies are the correct controls for S3 data protection.</p></div>
+<div class="q-explain"><div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why options B, C, D are correct</span><span class="exp-text">S3 Versioning (B) maintains a full history of every object version, enabling recovery from accidental overwrites or deletions by restoring a prior version. Default server-side encryption (C) using SSE-S3 (AES-256 managed by Amazon) or SSE-KMS (customer-managed keys via AWS KMS) ensures data is encrypted before it is written to disk, protecting confidentiality even if storage-layer access controls are bypassed. IAM policies and bucket policies (D) enforce the principle of least privilege, ensuring only authorized SageMaker execution roles, data engineers, and pipelines can read or write training data. Together these three controls address confidentiality (encryption), access integrity (IAM/bucket policies), and recoverability (versioning).</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">S3 Transfer Acceleration is a network performance feature that routes uploads through CloudFront edge locations to improve upload speed from geographically distant clients. It has no effect on the security or protection of data already stored in S3. Enabling or disabling it does not change who can access, overwrite, or delete your training data.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why E is wrong</span><span class="exp-text">Using a single shared bucket with no object-level policies violates the principle of least privilege. Different teams and automated pipelines should be restricted to only the specific prefixes or objects they require. A flat-permission bucket means a misconfigured or compromised service can read, overwrite, or delete any training dataset in the bucket.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why F is wrong</span><span class="exp-text">VPC security groups control network-level access to EC2 instance network interfaces — they do not protect objects stored in Amazon S3. S3 is accessed via HTTPS API calls that are authorized by IAM and bucket policies, not by security groups. S3 Block Public Access, bucket policies, and IAM policies are the correct controls for S3 data protection.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -532,10 +538,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: AWS Shield protects against DDoS attacks. Shield Standard is automatically enabled at no extra cost for all AWS customers and defends against common Layer 3/4 attacks. Shield Advanced adds enhanced L7 protection, real-time attack visibility, 24/7 DRT access, and cost protection—making it the right choice for business-critical AI applications.
-- Why B is wrong: AWS WAF filters malicious web requests (SQL injection, XSS) but does not provide volumetric DDoS protection. WAF and Shield are complementary—WAF alone is insufficient for large-scale DDoS.
-- Why C is wrong: Amazon CloudFront is a CDN that improves delivery performance. While it can absorb some traffic by distributing it, CloudFront itself is not a DDoS protection service. It is often used together with Shield.
-- Why D is wrong: Amazon GuardDuty is a threat detection service that analyzes logs (CloudTrail, VPC Flow Logs, DNS) to identify suspicious activity. It detects threats after the fact but does not actively block or mitigate DDoS traffic.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">AWS Shield protects against DDoS attacks. Shield Standard is automatically enabled at no extra cost for all AWS customers and defends against common Layer 3/4 attacks. Shield Advanced adds enhanced L7 protection, real-time attack visibility, 24/7 DRT access, and cost protection—making it the right choice for business-critical AI applications.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">AWS WAF filters malicious web requests (SQL injection, XSS) but does not provide volumetric DDoS protection. WAF and Shield are complementary—WAF alone is insufficient for large-scale DDoS.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">Amazon CloudFront is a CDN that improves delivery performance. While it can absorb some traffic by distributing it, CloudFront itself is not a DDoS protection service. It is often used together with Shield.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Amazon GuardDuty is a threat detection service that analyzes logs (CloudTrail, VPC Flow Logs, DNS) to identify suspicious activity. It detects threats after the fact but does not actively block or mitigate DDoS traffic.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -549,10 +555,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Fine-tuning incurs one-time (but repeatable) compute costs each time the model is retrained on custom data, while RAG incurs ongoing costs for maintaining a vector store (e.g., Amazon OpenSearch Serverless) and performing retrieval queries at inference time in addition to the model inference itself.
-- Why A is wrong: The cost structures are fundamentally different—fine-tuning front-loads spend on training compute, whereas RAG distributes costs across storage and retrieval over time.
-- Why C is wrong: RAG does not eliminate inference costs. The retrieved context is still passed to the foundation model for generation, so you pay for both retrieval and model inference.
-- Why D is wrong: A fine-tuned model still incurs per-inference costs every time it processes a prompt. Fine-tuning adjusts model weights but does not remove the need for inference compute.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Fine-tuning incurs one-time (but repeatable) compute costs each time the model is retrained on custom data, while RAG incurs ongoing costs for maintaining a vector store (e.g., Amazon OpenSearch Serverless) and performing retrieval queries at inference time in addition to the model inference itself.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">The cost structures are fundamentally different—fine-tuning front-loads spend on training compute, whereas RAG distributes costs across storage and retrieval over time.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">RAG does not eliminate inference costs. The retrieved context is still passed to the foundation model for generation, so you pay for both retrieval and model inference.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">A fine-tuned model still incurs per-inference costs every time it processes a prompt. Fine-tuning adjusts model weights but does not remove the need for inference compute.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -566,10 +572,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Right-sizing means selecting an instance type and size that closely matches the workload's actual resource needs. Since the model only uses one GPU at 40% utilization, a smaller GPU instance (such as a g4dn or g5) would meet requirements at significantly lower cost.
-- Why A is wrong: Over-provisioning wastes resources and budget. Traffic spikes should be handled by Auto Scaling or load balancing, not by maintaining an oversized instance at all times.
-- Why C is wrong: T3 instances are burstable general-purpose instances with no GPU capability. An AI model that requires GPU acceleration cannot run efficiently on a T3 instance.
-- Why D is wrong: Selecting solely on hourly price ignores critical factors like GPU availability, memory capacity, and network performance that directly impact ML workload quality.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Right-sizing means selecting an instance type and size that closely matches the workload's actual resource needs. Since the model only uses one GPU at 40% utilization, a smaller GPU instance (such as a g4dn or g5) would meet requirements at significantly lower cost.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">Over-provisioning wastes resources and budget. Traffic spikes should be handled by Auto Scaling or load balancing, not by maintaining an oversized instance at all times.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">T3 instances are burstable general-purpose instances with no GPU capability. An AI model that requires GPU acceleration cannot run efficiently on a T3 instance.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Selecting solely on hourly price ignores critical factors like GPU availability, memory capacity, and network performance that directly impact ML workload quality.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -583,10 +589,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: Embeddings map data (text, images, products) into dense numerical vectors in a high-dimensional space. In this space, semantically similar items are positioned closer together, which makes cosine similarity or nearest-neighbor searches effective for finding related products. This is the core reason embeddings power recommendation and search systems.
-- Why A is wrong: Embeddings are dense continuous vectors, not binary category labels. Category labels are a separate concept from the learned semantic representations that embeddings provide—they cannot capture nuanced similarity between items.
-- Why B is wrong: Embeddings are not compressed text stored for faster lookups. They are learned numerical representations that capture semantic meaning and relationships. The original text cannot be reconstructed from an embedding vector.
-- Why D is wrong: Popularity-based ranking is a frequency heuristic that simply surfaces the most purchased items. Embeddings capture semantic similarity regardless of purchase frequency, meaning they can surface relevant items that are rarely purchased but closely related to the customer's interests.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">Embeddings map data (text, images, products) into dense numerical vectors in a high-dimensional space. In this space, semantically similar items are positioned closer together, which makes cosine similarity or nearest-neighbor searches effective for finding related products. This is the core reason embeddings power recommendation and search systems.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">Embeddings are dense continuous vectors, not binary category labels. Category labels are a separate concept from the learned semantic representations that embeddings provide—they cannot capture nuanced similarity between items.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why B is wrong</span><span class="exp-text">Embeddings are not compressed text stored for faster lookups. They are learned numerical representations that capture semantic meaning and relationships. The original text cannot be reconstructed from an embedding vector.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">Popularity-based ranking is a frequency heuristic that simply surfaces the most purchased items. Embeddings capture semantic similarity regardless of purchase frequency, meaning they can surface relevant items that are rarely purchased but closely related to the customer's interests.</span></div></div>
 </details>
 </div>
 <div class="q-card">
@@ -600,10 +606,10 @@ details summary { color: #60a5fa; font-weight: 600; font-size: 0.95rem; padding:
 </ul>
 <details>
 <summary>Show Explanation</summary>
-<div class="q-explain"><p>- Why correct: A model card is a standardized transparency document that summarizes a model’s purpose, training data, evaluation metrics, performance across demographic groups, limitations, and intended use cases. AWS recommends model cards (available in Amazon SageMaker) to promote responsible AI transparency.
-- Why A is wrong: An API reference documents technical integration details (endpoints, request/response formats) but does not communicate the model’s capabilities, limitations, or fairness considerations that regulators and stakeholders need.
-- Why C is wrong: A cost-benefit analysis compares economic value but does not describe the model’s technical characteristics, performance gaps, or responsible AI considerations.
-- Why D is wrong: A data dictionary describes individual features and their formats, which is useful for data engineering but does not provide the high-level summary of model behavior, limitations, and intended use that stakeholders and regulators require.</p></div>
+<div class="q-explain"><div class="q-explain-item correct-exp"><span class="exp-label">✓ Why correct</span><span class="exp-text">A model card is a standardized transparency document that summarizes a model’s purpose, training data, evaluation metrics, performance across demographic groups, limitations, and intended use cases. AWS recommends model cards (available in Amazon SageMaker) to promote responsible AI transparency.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why A is wrong</span><span class="exp-text">An API reference documents technical integration details (endpoints, request/response formats) but does not communicate the model’s capabilities, limitations, or fairness considerations that regulators and stakeholders need.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why C is wrong</span><span class="exp-text">A cost-benefit analysis compares economic value but does not describe the model’s technical characteristics, performance gaps, or responsible AI considerations.</span></div>
+<div class="q-explain-item wrong-exp"><span class="exp-label">✗ Why D is wrong</span><span class="exp-text">A data dictionary describes individual features and their formats, which is useful for data engineering but does not provide the high-level summary of model behavior, limitations, and intended use that stakeholders and regulators require.</span></div></div>
 </details>
 </div>
 
